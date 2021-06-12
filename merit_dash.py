@@ -10,7 +10,7 @@ alt.data_transformers.disable_max_rows()
 with open("template.html", "r") as t:
     template = t.read().replace("\n", "")
 
-df1 = pd.read_csv("data/conventional_power_plants_EU.csv")
+df1 = pd.read_csv("data/clean_db.csv")
 df_params = pd.read_csv("data/parameters.csv", index_col=0)
 df_dem = pd.read_csv("data/demand_stats.csv", index_col=0)
 
@@ -40,7 +40,7 @@ COLORS = {
 class Merit_dash(param.Parameterized):
 
     countries = param.ListSelector(
-        ["DE"], objects=(sorted(df1["country"].unique()))  # , height_policy="max"
+        ["Greece"], objects=(sorted(df1["country"].unique()))  # , height_policy="max"
     )
 
     carbon_price = param.Number(0, bounds=(0, 100))
@@ -107,7 +107,7 @@ class Merit_dash(param.Parameterized):
     def q_df(self):
         df_filtered = df1[df1["country"].isin(self.countries)]
         self.update_prices()  #  This is not very efficient as it is changing the mutable dataframe and the remerges FIXME
-        df_merged = pd.merge(df_filtered, df_params, on="energy_source_level_1")
+        df_merged = pd.merge(df_filtered, df_params, on="type_g")
         df_merged["marg_cost"] = (df_merged["Cost (EUR/Mwh)"] / df_merged["eff"]).round(
             2
         )
@@ -136,10 +136,10 @@ class Merit_dash(param.Parameterized):
         # Modify the capacity (Full or average ?)
         if self.toggle_operation == "Average day":
             df_merged["capacity_plot"] = (
-                df_merged["capacity"] * df_merged["Capacity Factor"]
+                df_merged["capacity_g"] * df_merged["Capacity Factor"]
             )
         else:
-            df_merged["capacity_plot"] = df_merged["capacity"]
+            df_merged["capacity_plot"] = df_merged["capacity_g"]
         df_merged["x1"] = df_merged["capacity_plot"].cumsum() / 1e3
         df_merged["x2"] = df_merged["x1"].shift(fill_value=0).values
 
@@ -157,7 +157,7 @@ class Merit_dash(param.Parameterized):
                     ),
                     legend=alt.Legend(title="Technology"),
                 ),
-                tooltip=["name", "energy_source_level_1", "capacity", "marg_cost"],
+                tooltip=["name_g", "type_g", "capacity_g", "marg_cost"],
             )
         )
         chart = power
@@ -186,7 +186,7 @@ class Merit_dash(param.Parameterized):
         clustered = False
         data = self.q_df()
         coordinates = (
-            data[["lat", "lon", "name", "capacity", "energy_source_level_1"]].dropna().values
+            data[["lat", "lon", "name_g", "capacity_g", "type_g"]].dropna().values
         )
         # initialize the Folium map
         m = folium.Map(
@@ -230,9 +230,9 @@ class Merit_dash(param.Parameterized):
     def capacities(self):
         df_filtered = df1[df1["country"].isin(self.countries)]
         if not self.toggle_aggregate_by_type:
-            df_out = df_filtered[["name", "energy_source_level_1", "capacity"]].set_index("name")
+            df_out = df_filtered[["name_g", "type_g", "capacity_g"]].set_index("name_g")
         else:
-            df_out = df_filtered.groupby("energy_source_level_1")["capacity"].sum().to_frame()
+            df_out = df_filtered.groupby("type_g")["capacity_g"].sum().to_frame()
         # df_out.index.name = None
         return pn.widgets.DataFrame(df_out.round(1))
 
@@ -244,4 +244,3 @@ tmpl = pn.Template(template)
 
 tmpl.add_panel("A", a.view)
 tmpl.servable(title="Merit order")
-
