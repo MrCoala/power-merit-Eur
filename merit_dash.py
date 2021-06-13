@@ -28,7 +28,7 @@ COLORS = {
     "Geothermal": "olive",
     "Fossil Gas": "grey",
     "Fossil Coal-derived gas": "grey",
-    "Fossil Brown coal/Lignite": "brown",
+    "Lignite": "brown",
     "Fossil Hard coal": "brown",
     "Fossil Peat": "brown",
     "Fossil Oil shale": "red",
