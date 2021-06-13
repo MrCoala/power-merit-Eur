@@ -162,7 +162,7 @@ class Merit_dash(param.Parameterized):
         )
         chart = power
         # Show demand bands only for one country
-        if len(self.countries) == 1 and self.countries[0] in df_dem.index:
+        if false and len(self.countries) == 1 and self.countries[0] in df_dem.index:
             df_demp = df_dem.loc[self.countries[0]].to_frame().T
             demand = (
                 alt.Chart(df_demp)
