@@ -44,7 +44,7 @@ COLORS = {
     "Other or unspecified energy sources": "orchid",
     "Other fossil fuels": "wheat",
     "Other fuels": "lavender",
-    "Natural Gas": "gold",
+    "Natural gas": "gold",
 }
 
 
