@@ -1,4 +1,5 @@
 Column1;Column2;Column3;Column4
+Column1;Column2;Column3;Column4
 type_g;Cost (EUR/Mwh);Emissions (gr/kWh);Capacity Factor
 Bioenergy;30.0;0;.95
 Lignite;8.0;363.6;.95
