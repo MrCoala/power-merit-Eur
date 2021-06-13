@@ -1,4 +1,4 @@
-type_g,Cost (EUR/Mwh),Emissions (gr/kWh),Capacity Factor
+energy_source,Cost (EUR/Mwh),Emissions (gr/kWh),Capacity Factor
 Bioenergy,30.0,0,.95
 Lignite,8.0,363.6,.95
 Fossil Coal-derived gas,35.0,158.4,.95
