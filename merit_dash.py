@@ -179,51 +179,10 @@ class Merit_dash(param.Parameterized):
 
     @param.depends("countries")
     def heatmap(self):
-        """
-        Return a Folium map with a heatmap showing the currently 
-        selected data.
-        """
-        clustered = False
-        data = self.q_df()
-        coordinates = (
-            data[["lat", "lon", "name", "capacity", "energy_source"]].dropna().values
-        )
-        # initialize the Folium map
-        m = folium.Map(
-            location=[data["lat"].mean(), data["lon"].mean()],
-            tiles="Stamen TonerBackground",
-            zoom_start=6,  # ='Cartodb Positron'
-        )
-        # add heat map
-
-        if clustered:  # Works but not implemented in UI
-            from folium.plugins import MarkerCluster
-
-            mc = MarkerCluster()
-            for i in coordinates:
-                mc.add_child(
-                    folium.Marker(
-                        (i[0], i[1]),
-                        icon=folium.Icon(color="green", icon="remove-sign"),
-                        popup=f"Name: {i[2]} \n{i[3]} MW\n{i[4]}",
-                    )
-                )
-            m.add_child(mc)
-        else:
-            for i in coordinates:
-                folium.Circle(
-                    location=(i[0], i[1]),
-                    popup=f"Name: {i[2]} \n{i[3]} MW\n{i[4]}",
-                    radius=i[3] * 10,
-                    color=COLORS[i[4]],  #'crimson',
-                    fill=True,
-                    fill_color=COLORS[i[4]],
-                ).add_to(m)
-
-        # IMPORTANT: add map to a folium Figure
+         # IMPORTANT: add map to a folium Figure
         # return a figure with a set width/height
         figure = folium.Figure(width=700, height=700)
-        m.add_to(figure)
+
         return pn.Pane(figure)
 
     @param.depends("countries", "toggle_aggregate_by_type")
