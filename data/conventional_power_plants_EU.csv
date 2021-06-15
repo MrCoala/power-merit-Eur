@@ -1,5 +1,16 @@
 ,name,company,street,postcode,city,country,capacity,energy_source,technology,chp,commissioned,type,lat,lon,eic_code,energy_source_level_1,energy_source_level_2,energy_source_level_3,additional_info,comment,source,eff
+,Solar_DE_Dummy,Dummy,,,,DE,56000,Solar,Solar,,,,50,4,,Solar,Solar,,,,,0.99
+,Wind_On_DE_Dummy,Dummy,,,,DE,55400,Wind Onshore,Wind,,,,,,,Wind,Wind,,,,,0.99
+,Wind_Off_DE_Dummy,Dummy,,,,DE,77000,Wind Offshore,Wind,,,,,,,Wind,Wind,,,,,0.99
 0,Marcinelle Energie (Carsid),DIRECT ENERGIE,,,,BE,413.0,Natural gas,Combined cycle,,,,50.41396,4.40645,22WMARCIN000179H,Fossil fuels,Natural gas,,,,https://www.elia.be/en/grid-data/power-generation/generating-facilities#,0.575
+,Solar_AT_Dummy,Dummy,,,,AT,1850,Solar,Solar,,,,,,,Solar,Solar,,,,,0.99
+,Solar_PL_Dummy,Dummy,,,,PL,480,Solar,Solar,,,,,,,Solar,Solar,,,,,0.99
+,Solar_FR_Dummy,Dummy,,,,FR,8300,Solar,Solar,,,,,,,Solar,Solar,,,,,0.99
+,Solar_DK_Dummy,Dummy,,,,DK,548.27,Solar,Solar,,,,,,,Solar,Solar,,,,,0.99
+,Wind_On_AT_Dummy,Dummy,,,,AT,3120,Wind Onshore,Wind,,,,,,,Wind,Wind,,,,,0.99
+,Wind_On_PL_Dummy,Dummy,,,,PL,5900,Wind Onshore,Wind,,,,,,,Wind,Wind,,,,,0.99
+,Wind_On_FR_Dummy,Dummy,,,,FR,14880,Wind Onshore,Wind,,,,,,,Wind,Wind,,,,,0.99
+,Wind_On_DK_Dummy,Dummy,,,,DK,6180,Wind Onshore,Wind,,,,,,,Wind,Wind,,,,,0.99
 1,Aalst Syral GT,Electrabel,,,,BE,43.0,Natural gas,Gas turbine,Yes,,CHP/IPP,,,,Fossil fuels,Natural gas,,,,https://www.elia.be/en/grid-data/power-generation/generating-facilities#,0.575
 2,Aalst Syral ST,Electrabel,,,,BE,5.0,Natural gas,Steam turbine,Yes,,CHP/IPP,,,,Fossil fuels,Natural gas,,,,https://www.elia.be/en/grid-data/power-generation/generating-facilities#,0.575
 3,AALTER TJ,Electrabel,,,,BE,18.0,Oil,Gas turbine,,,,,,,Fossil fuels,Oil,,,,https://www.elia.be/en/grid-data/power-generation/generating-facilities#,0.339
