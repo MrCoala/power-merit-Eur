@@ -1,7 +1,7 @@
 ,name,company,street,postcode,city,country,capacity,energy_source,technology,chp,commissioned,type,lat,lon,eic_code,energy_source_level_1,energy_source_level_2,energy_source_level_3,additional_info,comment,source,eff
 ,Solar_DE_Dummy,Dummy,,,,DE,56000,Solar,Solar,,,,50,4,,Solar,Solar,,,,,0.99
 ,Wind_On_DE_Dummy,Dummy,,,,DE,55400,Wind Onshore,Wind,,,,,,,Wind,Wind,,,,,0.99
-,Wind_Off_DE_Dummy,Dummy,,,,DE,77000,Wind Offshore,Wind,,,,,,,Wind,Wind,,,,,0.99
+,Wind_Off_DE_Dummy,Dummy,,,,DE,7700,Wind Offshore,Wind,,,,,,,Wind,Wind,,,,,0.99
 0,Marcinelle Energie (Carsid),DIRECT ENERGIE,,,,BE,413.0,Natural gas,Combined cycle,,,,50.41396,4.40645,22WMARCIN000179H,Fossil fuels,Natural gas,,,,https://www.elia.be/en/grid-data/power-generation/generating-facilities#,0.575
 ,Solar_AT_Dummy,Dummy,,,,AT,1850,Solar,Solar,,,,,,,Solar,Solar,,,,,0.99
 ,Solar_PL_Dummy,Dummy,,,,PL,480,Solar,Solar,,,,,,,Solar,Solar,,,,,0.99
